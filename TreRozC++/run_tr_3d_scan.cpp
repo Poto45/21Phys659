@@ -16,7 +16,7 @@ int main()
  int nxsample,nysample, in, ix, iy;
  char fname[80];
 // x info: 
- lx=10.0; // mm
+ lx=12.7; // mm
  xcutoff=3.0; // charge extent in x
  sigx=1e5;  
  nxImp=16; // grid points in x
