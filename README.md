@@ -26,11 +26,11 @@ Once the three files are together in a directory, the Windows commands are:
 The output electric and magnetic field data is given in the file `wake_2Dsurf.dat` with extra data given in `wake_z_wz.dat`. Other output can also be chosen, but see the code in here and documentation to add other parameters. The `wake_2dsurf.dat` file is what has the x, y, z, Ex, Ey, Bx, and By data and are delimited using a space and can be extracted using python to plot (`ScannedPlots.ipynb`). The layout is seen below:
 
 ```
- x   y   z   Ex  Ey  Bx  By
---- --- --- --- --- --- ---
- 0   0   0   0   0   0   0
+  x      y    z   Ex  Ey  Bx  By
+-----  ----- --- --- --- --- ---
+ -5.5   1.5   0   0   0   0   0
 ...
- 0   0   0   0   0   0   0
+ 5.5    1.5   0   0   0   0   0
 ```
 
 
