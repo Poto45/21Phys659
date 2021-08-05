@@ -44,8 +44,44 @@ The wakefields are plotted in the file `ScannedPlots.ipynb`. In order to get the
 ## WARP Code
 This python-based code is powerful in dumping large amounts of data into HDF5 files and continuing its calculations through many different timesteps. 
 
+### Running the code
+This code is run on the NICADD cluster as there is no `WARP` option for Windows and because the HDF5 files are rather memory intensive. It's python-based, so a connection between the cluster and the personal Windows computer is created to run Jupyterlab through Chrome. A Diag directory is created and the HDF5 files dumped for certain timesteps (defined in the file). 
+
+### HDF5 Files and Plot Creation
+The HDF5 file has a nested format for the data and generally needs investigating if unfamiliar with the output of a specific run. Below is the current layoutfor the HDF5 files created from the `testingawacode-WORKS.ipynb`. 
+
+```
+-Data
+ -Timestep (eg "500")
+  -Fields
+   -B
+    -x (data)
+    -y (data)
+    -z (data)
+   -E
+    -x (data)
+    -y (data)
+    -z (data)
+   -J
+    -x (data)
+    -y (data)
+    -z (data)
+   -Rho (data)
+  -Particles
+   -Helium0+
+    -Momentum 
+     -x (data)
+     -y (data)
+     -z (data)
+    -positionOffset
+     -x (data)
+     -y (data)
+     -z (data)
+   ...
+```
 
 
+Plotting is done using `WARPplotting.ipynb`, where the HDF5 file is read and data taken from it for a specific timestep, described at the beginning of the file.
 
 
 
