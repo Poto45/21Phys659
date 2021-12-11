@@ -84,5 +84,30 @@ The HDF5 file has a nested format for the data and generally needs investigating
 Plotting is done using `WARPplotting.ipynb`, where the HDF5 file is read and data taken from it for a specific timestep, described at the beginning of the file.
 
 
+# Fall 2021 Phys 659 Work
+## WARPX
+
+
+
+
+## Matrix Analysis of Single-Shot Wakefield Measurement System
+
+This analysis is based off of the article Single-shot wakefield measurement system in the Physical Review Accelerators and Beams 21, 062801 (2018). The system outputs the beam to go through a transverse deflecting cavity (TDC), two quads (not taken into account here), and a spectrometer. 
+
+The TDC has a transport matrix in <img src="https://latex.codecogs.com/svg.image?(x,&space;x',&space;y,&space;y',&space;z,&space;\delta)" title="(x, x', y, y', z, \delta)" /> phase space of:
+
+<img src="https://latex.codecogs.com/svg.image?\begin{pmatrix}1&space;&&space;0&space;&&space;0&space;&&space;0&space;&&space;0&space;&&space;0\\0&space;&&space;1&space;&&space;0&space;&&space;0&space;&&space;0&space;&&space;0\\0&space;&&space;0&space;&&space;1&space;&&space;0&space;&&space;0&space;&&space;0\\0&space;&&space;0&space;&&space;0&space;&&space;1&space;&&space;\kappa&space;&&space;0\\0&space;&&space;0&space;&&space;0&space;&&space;0&space;&&space;1&space;&&space;0\\0&space;&&space;0&space;&&space;\kappa&space;&&space;0&space;&&space;0&space;&&space;1\end{pmatrix}" title="\begin{pmatrix}1 & 0 & 0 & 0 & 0 & 0\\0 & 1 & 0 & 0 & 0 & 0\\0 & 0 & 1 & 0 & 0 & 0\\0 & 0 & 0 & 1 & \kappa & 0\\0 & 0 & 0 & 0 & 1 & 0\\0 & 0 & \kappa & 0 & 0 & 1\end{pmatrix}" />
+
+The drift transport matrix is: 
+
+<img src="https://latex.codecogs.com/svg.image?\begin{pmatrix}1&space;&&space;L&space;&&space;0&space;&&space;0&space;&&space;0&space;&&space;0&space;\\0&space;&&space;1&space;&&space;0&space;&&space;0&space;&&space;0&space;&&space;0&space;\\0&space;&&space;0&space;&&space;1&space;&&space;L&space;&&space;0&space;&&space;0\\0&space;&&space;0&space;&&space;0&space;&&space;1&space;&&space;0&space;&&space;0\\0&space;&&space;0&space;&&space;0&space;&&space;0&space;&&space;1&space;&&space;0\\0&space;&&space;0&space;&&space;0&space;&&space;0&space;&&space;0&space;&&space;1\end{pmatrix}" title="\begin{pmatrix}1 & L & 0 & 0 & 0 & 0 \\0 & 1 & 0 & 0 & 0 & 0 \\0 & 0 & 1 & L & 0 & 0\\0 & 0 & 0 & 1 & 0 & 0\\0 & 0 & 0 & 0 & 1 & 0\\0 & 0 & 0 & 0 & 0 & 1\end{pmatrix}" />
+
+And, finally, the spectrometer acts like a dipole and has a transport matrix of: 
+
+<img src="https://latex.codecogs.com/svg.image?\begin{pmatrix}\cos(\theta)&space;&&space;\rho&space;\sin(\theta)&space;&&space;0&space;&&space;0&space;&&space;0&space;&&space;\rho&space;(1-\cos(\theta))\\-\sin(\theta)/\rho&space;&&space;\cos(\theta)&space;&&space;0&space;&&space;0&space;&&space;0&space;&&space;\sin(\theta)\\0&space;&&space;0&space;&&space;1&space;&&space;\rho\theta&space;&&space;0&space;&&space;0\\0&space;&&space;0&space;&&space;0&space;&&space;1&space;&&space;0&space;&&space;0\\-\sin(\theta)&space;&&space;-\rho&space;(1-\cos(\theta))&space;&&space;0&space;&&space;0&space;&&space;1&space;&&space;\rho(\sin(\theta)&space;-&space;\theta)\\0&space;&&space;0&space;&&space;0&space;&&space;0&space;&&space;0&space;&&space;1\end{pmatrix}" title="\begin{pmatrix}\cos(\theta) & \rho \sin(\theta) & 0 & 0 & 0 & \rho (1-\cos(\theta))\\-\sin(\theta)/\rho & \cos(\theta) & 0 & 0 & 0 & \sin(\theta)\\0 & 0 & 1 & \rho\theta & 0 & 0\\0 & 0 & 0 & 1 & 0 & 0\\-\sin(\theta) & -\rho (1-\cos(\theta)) & 0 & 0 & 1 & \rho(\sin(\theta) - \theta)\\0 & 0 & 0 & 0 & 0 & 1\end{pmatrix}" />
+
+The code for this is a simple jupyter notebook, but does require a specific library of sobol. For more information, go to <a href="https://people.sc.fsu.edu/~jburkardt/py_src/sobol/sobol.html">Sobol</a>. 
+
+The single jupyter notebook is all that is needed and will be commented out shortly.
 
 
